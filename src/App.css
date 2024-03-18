@@ -1,238 +1,267 @@
-
-
- 
 .header {
-  background-color: #ffffff;
-  position: fixed;
-    width: 100%;
-    height: 40px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 10px 20px;
- margin: 0;
- 
-     position: fixed; /* Set the navbar to fixed position */
-     top: 0; /* Position the navbar at the top of the page */
-     width: 100%; /* Full width */
-     z-index: 1000;
-     transition: box-shadow 0.3s ease;
-     border-bottom: 1px solid #ccc;
-  }
-  .shadow {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  .logo {
-     font-size: 24px;
-     font-weight: bolder;
-     color: #37474F;
-     margin: 0;
-     padding: 0;
-  
-  }
-  
-  .nav a {
-     margin-left: 20px;
-     text-decoration: none;
-     color: #37474F;
-     font-size: 17px;
-  }
- 
-  .nav a:hover {
-     color: #37474F;
-  }
-  
-  .cta {
-     background-color: #1B4332;
-     color: #fff;
-     padding: 10px 20px;
-     border-radius: 25px;
-     text-decoration: none;
-     font-size: 20px;
-  }
-  
-  .cta:hover {
-     background-color: #37474F;
-  }
-  .underline{
-    transition: all 0.3s ease;
-  }
-  .underline:hover{
-    text-decoration:underline;
-  }
-  .content {
- 
-     max-width: 800px;
-     margin: auto;
-     padding: 50px;
-     text-align: center;
-     margin-top: 70px;
-  }
-  
-  .content h1 {
-     font-size: 48px;
-     font-family: Graphik;
-     color: #1B4332;
-  }
-  .task-icon{
-    display: flex;
-    align-items: center;
-  }
-  .content p {
-     font-size: 24px;
-     font-family: Graphik;
-     color: #1B4332;
-  }
-  
-  .cta {
-     display: inline-block;
-     margin: 10px;
-     padding: 15px 30px;
-     border-radius: 25px;
-     text-decoration: none;
-     color: #fff;
-     font-size: 24px;
-  }
-  
-  .cta:hover {
-     background-color: #37474F;
-  }
-  img {
-      height: 50px;
-  
-    
-  }
-  span{
-      color: white;
-  }
-  .cta.learn-more {
-        background-color: #fff;
-        color: #1B4332;
-        border: 2px solid #1B4332;
-        
-     }
-  
-     .cta.learn-more:hover {
-        background-color: #37474F;
-        color: #fff;
-     }
-  
-     .menu-toggle {
-         display: none; /* Initially hidden */
-         cursor: pointer;
-         font-size: 24px;
-     }
- 
+   background-color: #ffffff;
+   position: fixed;
+   width: 100%;
+   height: 40px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 20px;
+   margin: 0;
 
- hr{
- 
-       border: 0;
-       height: 1px;
-       background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
- 
- }
-     
- 
-    .container {
-       display: grid;
-       justify-content: space-around;
-       align-items: center;
-       width: 100%;
-       height: 100%;
-       background-color: white;
-       min-height: calc(100vh - 200px); 
- 
-    }
-    
-    .product {
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       width: 30%;
-       height: 80%;
-       background-color: #ffffff;
- 
-       border-radius: 20px;
-       overflow: hidden;
-       margin: 4%;
-       transition: 0.2s;
- 
-    }
-    .product:hover{
-       transform: scale(1.1);background-color: #fafafa;
-   
-    }
-    .first{
-       height: 100vh;
-       min-height: 100vh;
-    }
-    h2{
-       font-size: 200%;
-       color: #1B4332;
-       display: flex;
-       margin-left: 5%;
-       margin-top: 2%;
-      
-    }
-    .flex
- {
-    display: flex;
- }
-    .product-image {
-       width: 80%;
-       height: 80%;
-       background-color: #ffffff;
-       border-radius: 5%;
-    }
-    
-    .product-title {
-       font-size: 20px;
-       color: #264653;
-       margin: 10px 0;
-    }
-    .except{
-       padding-bottom: 5%;
-    }
-    .product-description {
-       font-size: large;
-       color: #264653;
-       text-align: center;
-       padding: 0 20px;
-       font-family: Graphik;
-    }
-    p{
-       color: #1B4332;
-       font-weight: 500;
-       font-size: larger;
-       margin-left:5%;
-       margin-right: 5%;
-       line-height: 1.7;
-       font-family: Graphik;
-    }
-  
-     .down{
-       display: flex;
-       height: 10vh;
-       background-color: #9ac0b5;
-     }
- 
-     footer {
-       font-family: Graphik;
-       margin-top: auto;
-        margin-bottom: 2%;
-       left: 0;
-       color: white;
-       bottom: 0;
-       width: 100%;
-       text-align: center;
-     }
-  
-     .get {
-       margin-right: 50px;
- 
-     }
-          /* @media screen and (max-width: 940px) {
+   position: fixed;
+   /* Set the navbar to fixed position */
+   top: 0;
+   /* Position the navbar at the top of the page */
+   width: 100%;
+   /* Full width */
+   z-index: 1000;
+   transition: box-shadow 0.3s ease;
+   border-bottom: 1px solid #ccc;
+}
+
+.shadow {
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+   font-size: 24px;
+   font-weight: bolder;
+   color: #37474F;
+   margin: 0;
+   padding: 0;
+
+}
+
+.nav a {
+   margin-left: 20px;
+   text-decoration: none;
+   color: #37474F;
+   font-size: 17px;
+}
+
+.nav a:hover {
+   color: #37474F;
+}
+
+.cta {
+   background-color: #1B4332;
+   color: #fff;
+   padding: 10px 20px;
+   border-radius: 25px;
+   text-decoration: none;
+   font-size: 20px;
+}
+
+.cta:hover {
+   background-color: #37474F;
+}
+
+.underline {
+   transition: all 0.8s ease;
+
+}
+
+.logout {
+   margin-right: 33px;
+   /* Corrected syntax */
+   display: flex;
+}
+
+.underline:hover {
+   text-decoration: underline;
+}
+
+.content {
+
+   max-width: 800px;
+   margin: auto;
+   padding: 50px;
+   text-align: center;
+   margin-top: 70px;
+}
+
+.content h1 {
+   font-size: 48px;
+   font-family: Graphik;
+   color: #1B4332;
+}
+
+.task-icon {
+   display: flex;
+   align-items: center;
+}
+
+.content p {
+   font-size: 24px;
+   font-family: Graphik;
+   color: #1B4332;
+}
+
+.cta {
+   display: inline-block;
+   margin: 10px;
+   padding: 15px 30px;
+   border-radius: 25px;
+   text-decoration: none;
+   color: #fff;
+   font-size: 24px;
+}
+
+.cta:hover {
+   background-color: #37474F;
+}
+
+img {
+   height: 50px;
+
+
+}
+
+span {
+   color: white;
+}
+
+.cta.learn-more {
+   background-color: #fff;
+   color: #1B4332;
+   border: 2px solid #1B4332;
+
+}
+
+.cta.learn-more:hover {
+   background-color: #37474F;
+   color: #fff;
+}
+
+.menu-toggle {
+   display: none;
+   /* Initially hidden */
+   cursor: pointer;
+   font-size: 24px;
+}
+
+
+
+
+hr {
+
+   border: 0;
+   height: 1px;
+   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+
+}
+
+
+.container {
+   display: grid;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   background-color: white;
+   min-height: calc(100vh - 200px);
+
+}
+
+.product {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 30%;
+   height: 80%;
+   background-color: #ffffff;
+
+   border-radius: 20px;
+   overflow: hidden;
+   margin: 4%;
+   transition: 0.2s;
+
+}
+
+.product:hover {
+   transform: scale(1.1);
+   background-color: #fafafa;
+
+}
+
+.first {
+   height: 100vh;
+   min-height: 100vh;
+}
+
+h2 {
+   font-size: 200%;
+   color: #1B4332;
+   display: flex;
+   margin-left: 5%;
+   margin-top: 2%;
+
+}
+
+.flex {
+   display: flex;
+}
+
+.product-image {
+   width: 80%;
+   height: 80%;
+   background-color: #ffffff;
+   border-radius: 5%;
+}
+
+.product-title {
+   font-size: 20px;
+   color: #264653;
+   margin: 10px 0;
+}
+
+.except {
+   padding-bottom: 5%;
+}
+
+.product-description {
+   font-size: large;
+   color: #264653;
+   text-align: center;
+   padding: 0 20px;
+   font-family: Graphik;
+}
+
+p {
+   color: #1B4332;
+   font-weight: 500;
+   font-size: larger;
+   margin-left: 5%;
+   margin-right: 5%;
+   line-height: 1.7;
+   font-family: Graphik;
+}
+
+.down {
+   display: flex;
+   height: 10vh;
+   background-color: #9ac0b5;
+}
+
+footer {
+   font-family: Graphik;
+   margin-top: auto;
+   margin-bottom: 2%;
+   left: 0;
+   color: white;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
+
+.get {
+   margin-right: 50px;
+
+}
+
+/* @media screen and (max-width: 940px) {
          .nav {
              display: none;
          }

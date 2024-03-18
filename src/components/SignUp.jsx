@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -12,6 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom'
 import './signup.css';
 function Copyright(props) {
   return (
@@ -31,17 +31,61 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+
+  const navigate = useNavigate();
+
+  const [FormData, setFormData] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+
+
+  })
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...FormData,
+      [name]: value
+    })
+  }
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    try {
+      const response = await fetch("http://localhost:4000/users/signup", {
+
+        method: "POST",
+        headers: {
+          "content-Type": "application/json"
+        },
+        body: JSON.stringify(FormData)
+      })
+      const result = await response.json();
+      console.log(result);
+      navigate('/signin')
+
+
+
+    } catch (error) {
+      console.log(error);
+    } finally {
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+      })
+    }
   };
 
-  return (
 
+
+  return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -53,24 +97,24 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-                  <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                bgcolor: 'secondary.main',
-                borderRadius: '50%',
-                width: 80,
-                height: 80,
-                overflow: 'hidden',
-                marginBottom: 1,
-              }}
-            >
-              <img src="/images/taskroomicon.png" alt="Custom Icon" className='SignImage' />
-            </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              bgcolor: 'secondary.main',
+              borderRadius: '50%',
+              width: 80,
+              height: 80,
+              overflow: 'hidden',
+              marginBottom: 1,
+            }}
+          >
+            <img src="/images/taskroomicon.png" alt="Custom Icon" className='SignImage' />
+          </Box>
           <Typography component="h1" variant="h5">
-          <strong><span style={{color:"#384454"}}>Sign up</span></strong>
-        </Typography>
+            <strong><span style={{ color: "#384454" }}>Sign up</span></strong>
+          </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -82,6 +126,9 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={FormData.firstName}
+                  onChange={handleInputChange} // Added onChange event handler
+
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -92,6 +139,10 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  value={FormData.lastName}
+                  onChange={handleInputChange} // Added onChange event handler
+
+
                 />
               </Grid>
               <Grid item xs={12}>
@@ -102,6 +153,10 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={FormData.email}
+                  onChange={handleInputChange} // Added onChange event handler
+
+
                 />
               </Grid>
               <Grid item xs={12}>
@@ -113,6 +168,10 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={FormData.password}
+                  onChange={handleInputChange} // Added onChange event handler
+
+
                 />
               </Grid>
               <Grid item xs={12}>
@@ -124,14 +183,11 @@ export default function SignUp() {
                   type="password"
                   id="confirmPassword"
                   autoComplete="new-password"
+                  value={FormData.password}
+                  onChange={handleInputChange} // Added onChange event handler
+
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid> */}
             </Grid>
             <Button
               type="submit"

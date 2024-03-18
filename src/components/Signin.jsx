@@ -15,30 +15,53 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 
+
 function SignInSide() {
-  const navigate = useNavigate(); // Hook for navigation
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email');
-    const password = formData.get('password');
+  const navigate = useNavigate();
 
-    axios.post('http://localhost:6000/users/signin', { email, password })
+  const [FormData, setFormData] = React.useState({
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...FormData,
+      [name]: value
+    })
+  }
 
 
-      .then(result => {
-        const responseData = result.data;
-        console.log(responseData);
-        if (responseData.success) {
-          navigate("/"); // Redirect to home page if signin is successful
-        } else {
-          alert(responseData.error || "Authentication failed");
-          navigate("/"); // Redirect to signup page if signin fails
-        }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch("http://localhost:4000/users/signin", {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json"
+        },
+        body: JSON.stringify(FormData)
       })
-      .catch(err => console.error(err));
+      const result = await response.json();
+      localStorage.setItem("token",result.token)
+      console.log(result);
+      navigate('/')
+    } catch (error) {
+      console.log(error);
+    } finally {
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+      })
+    }
   };
+
+
 
   return (
     <ThemeProvider theme={createTheme()}>
@@ -96,6 +119,8 @@ function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={FormData.email}
+                onChange={handleInputChange}
               />
               <TextField
                 margin="normal"
@@ -106,6 +131,8 @@ function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={FormData.password}
+                onChange={handleInputChange}
               />
               <Button
                 type="submit"
